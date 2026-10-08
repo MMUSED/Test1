@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BelGer | Muy pronto, tu nuevo delivery</title>
+<meta name="description" content="BelGer es el nuevo delivery de comida que viene a cambiar tus noches. Escribinos por WhatsApp y recibí un beneficio en la gran apertura.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0e0605">
+
+<!-- Vista previa al compartir el link (WhatsApp, Instagram, Facebook).
+     Subí una imagen de 1200x630 y descomentá og:image con su URL completa -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="BelGer | Algo tremendo se está preparando">
+<meta property="og:description" content="BYG llega a La Plata, Ensenada y Berisso. Pedí por WhatsApp de lunes a lunes, de 18 a 23 hs.">
+<!-- <meta property="og:image" content="https://tudominio.com/og-byg.jpg"> -->
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Datos del negocio para Google (búsquedas locales) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FoodEstablishment","name":"BelGer (BYG)","areaServed":["La Plata","Ensenada","Berisso"],"openingHours":"Mo-Su 18:00-23:00","paymentAccepted":"Transferencia, Mercado Pago, Cuenta DNI, billeteras virtuales"}
+</script>
+
+<!-- Medición: si vas a hacer publicidad, pegá acá el código de Meta Pixel o Google Analytics -->
+
+<!-- Tipografías: Fraunces (títulos, cálida y con carácter) + Outfit (texto, muy legible) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============ 1. VARIABLES DE MARCA (cambiá los colores acá) ============ */
+:root{
+  --brasa:#190b09;        /* negro cálido, fondo principal */
+  --carbon:#0e0605;       /* negro más profundo */
+  --vino:#7a1519;         /* rojo oscuro */
+  --fuego:#c8301e;        /* rojo vivo para botones */
+  --madera:#8a5a38;       /* tono madera */
+  --crema:#f6e7d1;        /* texto principal */
+  --suave:#cdb59b;        /* texto secundario */
+  --miel:#eba94a;         /* acento puntual */
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --texto:"Outfit", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Márgenes seguros para celulares con notch (ver también <meta viewport>) */
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--brasa);color:var(--crema);font-family:var(--texto);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.skip{position:absolute;left:-999px;top:0}
+.skip:focus{left:1rem;top:1rem;z-index:30;padding:.6rem 1rem;border-radius:8px;background:var(--crema);color:#000}
+:focus-visible{outline:3px solid var(--miel);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+/* ============ 2. NAVBAR ============ */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(14,6,5,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(246,231,209,.1)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand b{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:.01em}
+/* Isotipo BYG (placeholder): reemplazalo por <img src="tu-logo.svg" alt="BYG"> */
+.mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:linear-gradient(145deg,var(--fuego),var(--vino));font-family:var(--display);font-weight:900;font-size:.95rem;letter-spacing:.02em;box-shadow:0 0 0 2px rgba(246,231,209,.18) inset}
+
+/* ============ 3. BOTONES ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.4rem;border:0;border-radius:999px;background:var(--fuego);color:#fff;font:600 1rem var(--texto);text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{background:#e03a26;transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn.small{min-height:42px;padding:0 1.1rem;font-size:.95rem}
+/* Botón "Pedidos AQUÍ": color miel + latido suave para que resalte siempre (la navbar es fija) */
+.btn.pedido{background:var(--miel);color:#2a0d08;font-weight:700;font-size:1rem;padding:0 1.3rem;animation:latido 2.4s ease-out infinite}
+.btn.pedido:hover{background:#ffbf5e}
+@keyframes latido{0%{box-shadow:0 0 0 0 rgba(235,169,74,.6)}70%,100%{box-shadow:0 0 0 14px rgba(235,169,74,0)}}
+
+/* ============ 4. HERO ============ */
+.hero{position:relative;overflow:hidden;padding:3.5rem 0 4.5rem;background:radial-gradient(900px 500px at 85% 15%,rgba(200,48,30,.32),transparent 60%),radial-gradient(600px 400px at 0% 100%,rgba(122,21,25,.45),transparent 65%),var(--brasa)}
+.hero .wrap{display:grid;gap:2.5rem;align-items:center}
+h1{margin:0 0 1.2rem;font-family:var(--display);font-weight:900;font-size:clamp(2.3rem,8vw,4.4rem);line-height:1.04;letter-spacing:-.02em;text-wrap:balance}
+h1 em{display:block;margin-top:.5rem;font-weight:500;font-size:.62em;line-height:1.2;color:var(--miel)}
+.sub{max-width:34rem;margin:0 0 2rem;color:var(--suave);font-size:1.15rem}
+.sub strong{color:var(--crema);font-weight:600}
+
+.cta{min-height:54px;padding:0 1.8rem;font-size:1.1rem}
+.fine{margin:.9rem 0 0;color:#a58f78;font-size:.85rem}
+
+/* Sello BYG (lo más llamativo del hero): anillo de texto que gira lento */
+.seal{width:min(300px,72vw);margin-inline:auto;filter:drop-shadow(0 20px 40px rgba(200,48,30,.35))}
+.seal svg{display:block;width:100%;height:auto}
+.ring{transform-origin:150px 150px;animation:spin 28s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============ 5. PRÓXIMAMENTE (fondo madera) ============ */
+.soon{padding:4.5rem 0;text-align:center;border-block:6px solid var(--carbon);
+  background:
+   repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0 2px,transparent 2px 140px),
+   repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 6px),
+   linear-gradient(180deg,#6a4529,#44291a)}
+.soon h2{margin:0 0 .8rem;font-family:var(--display);font-weight:900;font-size:clamp(1.9rem,6vw,3rem);line-height:1.1}
+.soon p{max-width:36rem;margin:0 auto 2.2rem;color:#ecd9c0}
+.soon .zona{font-size:clamp(1.2rem,4.5vw,1.6rem);line-height:1.4;color:var(--crema)}
+.soon .zona strong{display:block;margin-top:.3rem;font-family:var(--display);font-weight:900;color:var(--miel)}
+
+/* ============ 6. FOOTER ============ */
+.foot{padding:2.2rem 0;background:var(--carbon);color:var(--suave);font-size:.95rem}
+.foot .wrap{display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center}
+.foot a{color:var(--crema);font-weight:500}
+
+/* Horario y medios de pago */
+.info{padding:3rem 0;background:var(--carbon)}
+.info .wrap{display:grid;gap:1.8rem}
+.info h3{margin:0 0 .3rem;font-family:var(--display);font-weight:900;font-size:1.35rem}
+.info p{margin:0;color:var(--suave)}
+@media (min-width:860px){.info .wrap{grid-template-columns:1fr 1fr}}
+
+/* Cómo pedir */
+.pasos{padding:4rem 0 0;background:var(--brasa)}
+.pasos h2{margin:0 0 1.6rem;font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1}
+.pasos ol{display:grid;gap:1.4rem;margin:0;padding:0;list-style:none;counter-reset:paso}
+.pasos li{position:relative;padding-left:3.6rem;counter-increment:paso}
+.pasos li::before{content:counter(paso);position:absolute;left:0;top:0;display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--vino);font:900 1.2rem var(--display)}
+.pasos b{display:block;font-size:1.15rem}
+.pasos li span{color:var(--suave)}
+@media (min-width:860px){.pasos ol{grid-template-columns:repeat(3,1fr)}}
+
+/* Preguntas frecuentes (acordeón nativo con <details>) */
+.faq{padding:4rem 0 5rem;background:var(--brasa)}
+.faq h2{margin:0 0 1.6rem;font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1}
+.faq details{max-width:46rem;border-bottom:1px solid rgba(246,231,209,.16)}
+.faq summary{display:flex;justify-content:space-between;gap:1rem;padding:1.1rem 0;cursor:pointer;font-weight:600;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--miel)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:0 0 1.2rem;color:var(--suave)}
+
+/* Botón de música (solo aparece si cargás una canción en MUSICA_SRC) */
+.musica{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:20;display:grid;place-items:center;width:52px;height:52px;border:2px solid rgba(246,231,209,.3);border-radius:50%;background:rgba(14,6,5,.88);color:var(--crema);cursor:pointer}
+.musica[hidden]{display:none}
+.musica svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.musica .spk{fill:currentColor;stroke:none}
+.musica[aria-pressed="false"] .on,.musica[aria-pressed="true"] .off{display:none}
+.musica[aria-pressed="true"]{border-color:var(--miel);color:var(--miel)}
+
+/* ============ 7. DESKTOP ============ */
+@media (min-width:860px){
+  .hero{padding:6rem 0 7rem}
+  .hero .wrap{grid-template-columns:1.25fr .75fr}
+  .foot .wrap{flex-direction:row;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){.ring,.btn.pedido{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#inicio">Saltar al contenido</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="BelGer, ir al inicio">
+      <span class="mark" aria-hidden="true">BYG</span>
+      <b>BelGer</b>
+    </a>
+    <!-- El número de WhatsApp se cambia una sola vez, en CONFIGURACIÓN (JavaScript) -->
+    <a class="btn small pedido" href="#" data-wa="Hola BelGer! Quiero hacer un pedido" target="_blank" rel="noopener">¡Pedidos AQUÍ!</a>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <h1>
+        Lo que vas a probar hoy va a cambiar tus noches.
+        <em>¿Estás listo para conocer a BYG?</em>
+      </h1>
+      <p class="sub">BelGer es un <strong>nuevo servicio de delivery</strong> de comida casera, caliente y con mucha onda. Escribinos por WhatsApp y llevate un beneficio exclusivo en la gran apertura.</p>
+
+      <!-- Botón principal: abre WhatsApp con el mensaje ya escrito -->
+      <a class="btn cta" href="#" data-wa="Hola BelGer! Quiero mi beneficio de apertura" target="_blank" rel="noopener">Quiero mi beneficio de apertura</a>
+      <p class="fine">Te respondemos por WhatsApp. Sin spam.</p>
+    </div>
+
+    <!-- Sello decorativo con el isotipo -->
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 300 300">
+        <defs>
+          <radialGradient id="g" cx="35%" cy="30%" r="80%">
+            <stop offset="0" stop-color="#e2452d"/><stop offset="1" stop-color="#5f0f14"/>
+          </radialGradient>
+          <path id="circ" d="M150,150 m-118,0 a118,118 0 1,1 236,0 a118,118 0 1,1 -236,0"/>
+        </defs>
+        <circle cx="150" cy="150" r="146" fill="#0e0605" stroke="#8a5a38" stroke-width="3"/>
+        <g class="ring">
+          <text font-family="Outfit, sans-serif" font-size="19" font-weight="600" fill="#f6e7d1" letter-spacing="4">
+            <textPath href="#circ" id="anillo">BELGER DELIVERY • MUY PRONTO • BELGER DELIVERY • MUY PRONTO •</textPath>
+          </text>
+        </g>
+        <circle cx="150" cy="150" r="92" fill="url(#g)"/>
+        <text x="150" y="171" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="62" fill="#f6e7d1">BYG</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRÓXIMAMENTE ============ -->
+<section class="soon" id="proximamente">
+  <div class="wrap">
+    <h2 id="soon-t">Algo tremendo se está preparando...</h2>
+    <p class="zona" id="soon-p">Próximamente BYG llega a <strong>La Plata, Ensenada y Berisso.</strong></p>
+
+    <a class="btn" id="soon-btn" href="#" data-wa="Hola BelGer! Quiero anotarme para la apertura" target="_blank" rel="noopener">Anotarme para la apertura</a>
+  </div>
+</section>
+
+<!-- ============ HORARIO Y MEDIOS DE PAGO ============ -->
+<section class="info" aria-label="Horario y medios de pago">
+  <div class="wrap">
+    <div>
+      <h3>Horario</h3>
+      <p>Lunes a Lunes de 18 a 23 hs.</p>
+    </div>
+    <div>
+      <h3>Medios de pago</h3>
+      <p>Transferencia, Mercado Pago, Cuenta DNI o cualquier billetera virtual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÓMO PEDIR ============ -->
+<section class="pasos" id="como-pedir">
+  <div class="wrap">
+    <h2>Pedir es fácil</h2>
+    <ol>
+      <li><b>Tocá “¡Pedidos AQUÍ!”</b><span>Se abre WhatsApp con el mensaje listo.</span></li>
+      <li><b>Elegí tu pedido y pagá</b><span>Transferencia, Mercado Pago, Cuenta DNI o billetera virtual.</span></li>
+      <li><b>Recibilo en tu casa</b><span>Todos los días de 18 a 23 hs, caliente y en la puerta.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ PREGUNTAS FRECUENTES ============ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <details>
+      <summary>¿Cuándo abren?</summary>
+      <p>Muy pronto. Escribinos por WhatsApp y te avisamos apenas abramos, con tu beneficio de apertura.</p>
+    </details>
+    <details>
+      <summary>¿En qué horario atienden?</summary>
+      <p>Todos los días, de lunes a lunes, de 18 a 23 hs.</p>
+    </details>
+    <details>
+      <summary>¿A qué zonas llegan?</summary>
+      <p>A La Plata, Ensenada y Berisso.</p>
+    </details>
+    <details>
+      <summary>¿Cómo puedo pagar?</summary>
+      <p>Por transferencia, Mercado Pago, Cuenta DNI o cualquier billetera virtual.</p>
+    </details>
+    <details>
+      <summary>¿Cómo hago mi pedido?</summary>
+      <p>Por WhatsApp. Tocá el botón «¡Pedidos AQUÍ!» y te atendemos.</p>
+    </details>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <!-- El enlace se completa desde CONFIGURACIÓN (JavaScript) -->
+    <a href="#" id="ig" target="_blank" rel="noopener" aria-label="Instagram de BelGer">Instagram @belger.delivery</a>
+    <span>© <span id="year">2026</span> BelGer. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<!-- Música de fondo: el botón aparece solo si completás MUSICA_SRC en el JavaScript -->
+<button class="musica" id="musica" type="button" aria-pressed="false" aria-label="Activar música" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path class="spk" d="M3 9v6h4l5 4V5L7 9H3z"/>
+    <g class="on"><path d="M15.5 9.2a4 4 0 0 1 0 5.6"/><path d="M18.3 6.4a8 8 0 0 1 0 11.2"/></g>
+    <path class="off" d="M16 9.5l5 5m0-5l-5 5"/>
+  </svg>
+</button>
+<audio id="audio" loop preload="none"></audio>
+
+<script>
+/* ============ JAVASCRIPT ============ */
+
+/* Atajo para buscar elementos por id */
+const $ = id => document.getElementById(id);
+
+/* ============ CONFIGURACIÓN (lo único que tenés que editar) ============ */
+const WHATSAPP   = "5490000000000"; // código de país + número, sin "+" ni espacios (ej: 5492210000000)
+const INSTAGRAM  = "";              // ej: "https://instagram.com/belgerdelivery"
+const MUSICA_SRC = "";              // ej: "musica/byg.mp3" (vacío = sin música)
+const YA_ABRIMOS = false;           // poné true el día de la apertura y cambian los textos solos
+
+/* Todos los botones con data-wa abren WhatsApp con ese mensaje */
+document.querySelectorAll("[data-wa]").forEach(a => {
+  a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.wa);
+});
+if (INSTAGRAM) $("ig").href = INSTAGRAM;
+
+/* --- A) Año automático en el footer --- */
+$("year").textContent = new Date().getFullYear();
+
+/* --- B) Música de fondo ---
+   La ruta de la canción (MUSICA_SRC) se completa arriba, en CONFIGURACIÓN.
+   Si está vacía, el botón de música no se muestra.
+   Los navegadores bloquean el sonido automático: suena solo cuando la persona toca el botón.
+   Usá música libre de derechos o con licencia. */
+const audio = $("audio"), btnMusica = $("musica");
+if (MUSICA_SRC){
+  audio.src = MUSICA_SRC;
+  audio.volume = 0.35;
+  btnMusica.hidden = false;
+  const poner = on => {
+    btnMusica.setAttribute("aria-pressed", String(on));
+    btnMusica.setAttribute("aria-label", on ? "Silenciar música" : "Activar música");
+  };
+  btnMusica.addEventListener("click", () => {
+    if (audio.paused){ audio.play().then(() => poner(true)).catch(() => poner(false)); }
+    else { audio.pause(); poner(false); }
+  });
+}
+
+/* --- C) Modo "ya abrimos": cambia los textos de "Próximamente" --- */
+if (YA_ABRIMOS){
+  $("soon-t").textContent = "¡Ya abrimos!";
+  $("soon-p").innerHTML = "BYG ya está en <strong>La Plata, Ensenada y Berisso.</strong>";
+  $("soon-btn").textContent = "Hacer mi pedido";
+  $("anillo").textContent = "BELGER DELIVERY • YA ABRIMOS • BELGER DELIVERY • YA ABRIMOS •";
+}
+</script>
+</body>
+</html>
